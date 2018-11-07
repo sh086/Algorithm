@@ -11,6 +11,7 @@ public class StringHelper {
 
     /**
      * 判断字符串是否对应
+     * 方法：分割字符为字符数组
      * 空间复杂度：O(n)、空间复杂度：O(n)
      * */
     public static boolean charSymmetry (String string) {
