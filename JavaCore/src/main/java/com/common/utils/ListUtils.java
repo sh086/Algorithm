@@ -15,6 +15,9 @@ public class ListUtils {
 	 * @since 2018年11月6日13:56:22
 	 */
 	public static List<String> removeDuplicate(List<String> list) {
+		if(list == null || list.size()<=0){
+			return null;
+		}
 		Set<String> set = new HashSet<String>();
 		for (String str : list) {
 			if (StringUtils.isNotBlank(str)) {
@@ -31,6 +34,9 @@ public class ListUtils {
      * @since 2018年10月26日13:45:21
      * */
 	public static List<String> returnDuplicate(List<String> list) {
+        if(list == null || list.size()<=0){
+            return null;
+        }
 	    Integer count = 1;
 		Set<String> set = new HashSet<String>();
 		List<String> repeats = new ArrayList<String>();
