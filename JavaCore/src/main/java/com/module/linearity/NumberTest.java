@@ -1,6 +1,7 @@
 package com.module.linearity;
 
-import com.common.algorithm.manual.NumberHelper;
+import com.common.algorithm.toolbar.ArrayBar;
+import com.common.algorithm.toolbar.NumberBar;
 import com.common.utils.ConsoleUtils;
 import org.junit.Test;
 
@@ -19,7 +20,34 @@ public class NumberTest {
     public void targetMade(){
         int [] numbers = {2, 7, 11, 15};
         int target = 9;
-        int [] result = NumberHelper.targetMakeUp(numbers,target);
+        int [] result = ArrayBar.targetMakeUp(numbers,target);
         ConsoleUtils.printArray(result);
+    }
+
+    /**
+     * 反转整数
+     * */
+    @Test
+    public void reverse(){
+        int target = 1534236469;
+        System.out.println(NumberBar.reverse(target));
+    }
+
+    /**
+     *  从排序数组中删除重复项
+     * */
+    @Test
+    public void removeDuplicates(){
+        int[] target ={1,1,2};
+        System.out.println(ArrayBar.removeDuplicatesOrder(target));
+    }
+
+    /**
+     * 回文数
+     * */
+    @Test
+    public void isPalindrome(){
+        int target = 22;
+        System.out.println(NumberBar.isPalindrome(target));
     }
 }

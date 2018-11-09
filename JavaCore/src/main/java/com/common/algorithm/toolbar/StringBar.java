@@ -1,13 +1,13 @@
-package com.common.algorithm.manual;
+package com.common.algorithm.toolbar;
 
 import org.junit.platform.commons.util.StringUtils;
 
 /**
- * 字符串类算法
+ * 字符串类 练习算法
  * @author suhe
  * @since 2018年11月7日13:58:49
  * */
-public class StringHelper {
+public class StringBar {
 
     /**
      * 判断字符串是否对应
