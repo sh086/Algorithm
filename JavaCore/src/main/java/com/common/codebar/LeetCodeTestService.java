@@ -1,7 +1,5 @@
 package com.common.codebar;
 
-import org.springframework.stereotype.Service;
-
 /**
  * LeetCode练习算法
  * @author suhe
@@ -28,4 +26,25 @@ public interface LeetCodeTestService {
      * */
     int maxProfit(int[] prices);
 
+    /***
+     *  回旋平移数组
+     * 方法：按照数组长度取余
+     * 时间复杂度：O(n)  空间复杂度：O(1)
+     */
+    void rotate(int[] nums, int k);
+
+    /**
+     * 判断是否存在重复元素
+     * 方法：使用set类型去重
+     * 时间复杂度：O(n)  空间复杂度：O(1)
+     * @return 如果任何值在数组中出现至少两次，函数返回 true
+     *          如果数组中每个元素都不相同，则返回 false。
+     * */
+    boolean containsDuplicate(int[] nums);
+
+    /**
+     * 只出现一次的数字
+     * 方法：只出现一下，则改数字
+     * */
+    int singleNumber(int[] nums);
 }

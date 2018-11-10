@@ -33,13 +33,32 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
 
     /**
      *  买卖股票的最佳时机 II
-     *  方法：只买进盈利的天数即可
-     *  @a
      * */
     @Test
     public void maxProfit() {
         int[] target ={7,6,4,3,1};
         int count = leetCodeTestService.maxProfit(target);
         System.out.println(count);
+    }
+
+    /**
+     *  旋转数组
+     * */
+    @Test
+    public void rotate() {
+        int[] target ={1,2,3,4,5,6};
+        int k = 4;
+        leetCodeTestService.rotate(target,k);
+        ConsoleUtils.printArray(target);
+    }
+
+    /**
+     *  旋转数组
+     * */
+    @Test
+    public void containsDuplicate() {
+        int[] target ={1,2,3,1};
+        Boolean bool = leetCodeTestService.containsDuplicate(target);
+        System.out.println(bool);
     }
 }

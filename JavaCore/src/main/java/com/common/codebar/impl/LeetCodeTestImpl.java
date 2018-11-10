@@ -3,6 +3,11 @@ package com.common.codebar.impl;
 import com.common.codebar.LeetCodeTestService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * LeetCode练习算法 实现类
  * @author suhe
@@ -37,5 +42,40 @@ public class LeetCodeTestImpl implements LeetCodeTestService {
             }
         }
         return maxProfit;
+    }
+
+    @Override
+    public void rotate(int[] nums, int k) {
+        //若k为数组长度的倍数，则不做处理
+        if(k <=0 || nums == null || k % nums.length == 0){
+            return;
+        }
+        //取最简k值
+        k = k % nums.length;
+        for(int i =0; i < k ;i++){
+            int temp = nums[nums.length-1];
+            for(int m = nums.length -1; m > 0; m --){
+                nums[m] = nums[m-1];
+            }
+            nums[0] = temp;
+        }
+    }
+
+    @Override
+    public boolean containsDuplicate(int[] nums) {
+        if(nums == null || nums.length <=0){
+            return false;
+        }
+        Set<Integer> set = new HashSet<>();
+        for(int num:nums){
+            set.add(num);
+        }
+        List<Integer> arrays = new ArrayList<>(set);
+        return !(arrays.size() == nums.length);
+    }
+
+    @Override
+    public int singleNumber(int[] nums) {
+
     }
 }
