@@ -23,6 +23,21 @@ public class ConsoleUtils {
         System.out.println();
     }
 
+    /**打印一维数组的部分*/
+    public static void printArray(int [] nums,int n){
+        if(nums == null || nums.length <=0){
+            System.out.println("null");
+            return;
+        }
+        if(n > nums.length){
+            n = nums.length;
+        }
+        for(int i = 0; i<n;i++){
+            System.out.print(nums[i] +"  ");
+        }
+        System.out.println();
+    }
+
     /**打印二维数组*/
     public static void printArray(int [][] nums){
         if(nums == null || nums.length <=0){

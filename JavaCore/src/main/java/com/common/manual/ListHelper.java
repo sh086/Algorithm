@@ -1,4 +1,4 @@
-package com.common.algorithm.manual;
+package com.common.manual;
 
 import lombok.val;
 import org.junit.platform.commons.util.StringUtils;
@@ -9,16 +9,17 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 数组类 算法
+ * 列表类算法 算法
  * @author suhe
  * @since 2018年11月9日09:29:25
  * */
-public class ArrayHelper<T>{
+public class ListHelper<T>{
 
     /**
      * 去除list集合中重复项，不保证结果有序
-     * 方法：；利用set集合特性
+     * 方法：利用set集合特性
      * 时间复杂度：O(n)  空间复杂度：O(1)
+     * @param list 执行后，list为无序、不重复的集合
      */
     public static<T> List<T> removeDuplicate(List<T> list) {
         if(list == null || list.size()<=0){
@@ -38,6 +39,8 @@ public class ArrayHelper<T>{
      * 从排序数组中删除重复项,保证有序
      * 方法：双指针法
      * 时间复杂度：O(n)  空间复杂度：O(1)
+     * @param nums 已排序的数组
+     * @return 不重复的列表长度
      **/
     public static<T> int removeDuplicatesOrder(List<T> nums) {
         if(nums == null || nums.size() <= 0){
@@ -58,6 +61,8 @@ public class ArrayHelper<T>{
      * 返回重复的元素，不保证结果有序
      * 方法：；利用set集合特性
      * 时间复杂度：O(n)  空间复杂度：O(1)
+     * @param list 执行后，list为无序列表
+     * @return 重复的元素
      * */
     public static <T> List<T> returnDuplicate(List<T> list) {
         if(list == null || list.size()<=0){

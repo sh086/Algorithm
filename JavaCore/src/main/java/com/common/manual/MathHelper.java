@@ -1,4 +1,4 @@
-package com.common.algorithm.manual;
+package com.common.manual;
 
 /**
  * 数学类算法

@@ -1,4 +1,4 @@
-package com.common.services;
+package com.common.context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author suhe
  * @since 2018年11月6日11:50:31
  * */
-public class SpringContext {
+public class SpringContext<T>{
     private final static String xmlPath = "config/spring.xml";
     public static ApplicationContext applicationContext = null;
 
@@ -16,7 +16,7 @@ public class SpringContext {
         applicationContext = new ClassPathXmlApplicationContext(xmlPath);
     }
 
-    public Object getBean(String beanName){
-        return applicationContext.getBean(beanName);
+    public T getBean(String beanName){
+        return (T) applicationContext.getBean(beanName);
     }
 }
