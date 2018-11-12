@@ -21,25 +21,6 @@ public class LeetCodeServiceTest extends SpringContext {
         leetCodeService = (LeetCodeService) getBean("LeetCodeServiceImpl");
     }
 
-    /**
-     * 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数
-     * */
-    @Test
-    public void targetMade(){
-        int [] numbers = {2, 7, 11, 15};
-        int target = 9;
-        int [] result = leetCodeService.targetMakeUp(numbers,target);
-        ConsoleUtils.printArray(result);
-    }
-
-    /**
-     * 反转整数
-     * */
-    @Test
-    public void reverse(){
-        int target = 1534236469;
-        System.out.println(leetCodeService.reverse(target));
-    }
 
     /**
      * 回文数

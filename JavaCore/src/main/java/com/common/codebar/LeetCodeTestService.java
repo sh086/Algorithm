@@ -27,9 +27,10 @@ public interface LeetCodeTestService {
     int maxProfit(int[] prices);
 
     /***
-     *  回旋平移数组
+     *  将数组中的元素向右移动 k 个位置
      * 方法：按照数组长度取余
      * 时间复杂度：O(n)  空间复杂度：O(1)
+     * @param k  k 是非负数
      */
     void rotate(int[] nums, int k);
 
@@ -43,8 +44,60 @@ public interface LeetCodeTestService {
     boolean containsDuplicate(int[] nums);
 
     /**
-     * 只出现一次的数字
+     * 非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素
      * 方法：只出现一下，则改数字
+     * 时间复杂度：O(n)  空间复杂度：O(n)
+     * @param nums 数组中必须有
      * */
     int singleNumber(int[] nums);
+
+    /**
+     * 整数组成的非空数组所表示的非负整数，在该数的基础上加一
+     * 方法：只出现一下，则改数字
+     * 时间复杂度：O(n)  空间复杂度：O(n)
+     * */
+    int[] plusOne(int[] digits);
+
+    /**
+     * 将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序
+     * 方法：双标法，从尾部开始移动非0元素（无序）
+     * 时间复杂度：O(n)  空间复杂度：O(1)
+     * */
+    void moveZeroes(int[] nums);
+
+    /**
+     * 将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序
+     * 方法：双标法，从头部开始移动非0元素（有序）
+     * 时间复杂度：O(n)  空间复杂度：O(1)
+     * */
+    void moveZeroesOrder(int[] nums);
+
+    /**
+     * 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数
+     * 方法：遍历一遍哈希表
+     * 时间复杂度：O(n)、空间复杂度O(n)
+     * */
+    int[] targetMakeUp (int[] numbers, int target);
+
+    /**
+     * 反转字符串
+     * 方法：分割字符为字符数组
+     * 时间复杂度：O(n)、空间复杂度O(1)
+     * */
+     String reverseString(String s);
+
+    /**
+     * 反转int整数
+     * 方法：求余数
+     * 时间复杂度：O(n)、空间复杂度O(1)
+     * */
+    int reverse(int x);
+
+    /**
+     * 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+     * 方法：分割字符为字符数组
+     * 空间复杂度：O(n)、空间复杂度：O(n)
+     * */
+    boolean isPalindrome (String string);
+
 }
