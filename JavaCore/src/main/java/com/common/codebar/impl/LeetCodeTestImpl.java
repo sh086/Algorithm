@@ -86,6 +86,52 @@ public class LeetCodeTestImpl implements LeetCodeTestService {
     }
 
     @Override
+    public int[] intersect(int[] nums1, int[] nums2) {
+        Map<Integer,Integer> maps = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+        //进栈
+        for(int i = 0; i < nums1.length; i++){
+            int n = maps.get(nums1[i]) == null ? 0 :maps.get(nums1[i]);
+            maps.put(nums1[i],n +1);
+        }
+        //出栈
+        for(int i = 0; i < nums2.length; i++){
+            if(maps.get(nums2[i]) !=null && maps.get(nums2[i]) > 0){
+                result.add(nums2[i]);
+                maps.put(nums2[i],maps.get(nums2[i])-1);
+            }
+        }
+        //转为int[]
+        int[] num = new int[result.size()];
+        for(int k = 0; k < result.size(); k++){
+            num[k] = result.get(k);
+        }
+        return num;
+    }
+
+    @Override
+    public int[] intersectOrder(int[] nums1, int[] nums2) {
+        List<Integer> lists = new ArrayList<>();
+        int n = nums1.length > nums2.length ? nums2.length : nums1.length;
+        int i = 0,j = 0;
+        while(i < n && j < n){
+            if(nums1[i] == nums2[j]){
+                lists.add(nums1[i]);
+                i++;j++;
+            }else if(nums1[i] > nums1[j]){
+                j++;
+            }else {
+                i++;
+            }
+        }
+        int[] num = new int[lists.size()];
+        for(int k = 0; k < lists.size(); k++){
+            num[k] = lists.get(k);
+        }
+        return num;
+    }
+
+    @Override
     public int[] plusOne(int[] digits) {
         //bit表示下一位到上一位的进位值
         int bit = 1;

@@ -52,6 +52,26 @@ public interface LeetCodeTestService {
     int singleNumber(int[] nums);
 
     /**
+     * 两个未排序数组的交集 II
+     * 方法：基数排序
+     * 时间复杂度：O(n)  空间复杂度：O(n)
+     * @param nums1 未排序数组
+     * @param nums2 未排序数组
+     * @return 未排序的交集数组
+     * */
+    int[] intersect(int[] nums1, int[] nums2);
+
+    /**
+     * 两个正序数组的交集 II
+     * 方法：双指针法
+     * 时间复杂度：O(n)  空间复杂度：O(1)
+     * @param nums1 正序数组
+     * @param nums2 正序数组
+     * @return 正序的数组
+     * */
+    int[] intersectOrder(int[] nums1, int[] nums2);
+
+    /**
      * 整数组成的非空数组所表示的非负整数，在该数的基础上加一
      * 方法：只出现一下，则改数字
      * 时间复杂度：O(n)  空间复杂度：O(n)

@@ -72,6 +72,24 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
         System.out.println(result);
     }
 
+    /**两个正序数组的交集 II*/
+    @Test
+    public void intersect() {
+        int [] num1 = {4,7,9,7,6,7};
+        int [] num2 = {5,0,0,6,1,6,2,2,4};
+        int [] result = leetCodeTestService.intersect(num1,num2);
+        ConsoleUtils.printArray(result);
+    }
+
+    /**两个正序数组的交集 II*/
+    @Test
+    public void intersectOrder() {
+        int [] num1 = {1,2,2,4,4,7};
+        int [] num2 = {2,2,3};
+        int [] result = leetCodeTestService.intersectOrder(num1,num2);
+        ConsoleUtils.printArray(result);
+    }
+
     /**
      * 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数
      * */
