@@ -1,12 +1,12 @@
-package com.common.codebar;
+package com.module.leetcode.contest.services;
 
 
 /**
- * LeetCode题库算法
+ * 线性题库算法
  * @author suhe
  * @since 2018年11月10日07:04:33
  * */
-public interface LeetCodeService {
+public interface LinearService {
 
 
     /**

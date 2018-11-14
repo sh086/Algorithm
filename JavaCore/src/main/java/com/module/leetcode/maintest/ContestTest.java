@@ -1,8 +1,7 @@
-package com.module.linearity;
+package com.module.leetcode.maintest;
 
-import com.common.codebar.LeetCodeService;
+import com.module.leetcode.contest.services.LinearService;
 import com.common.context.SpringContext;
-import com.common.utils.ConsoleUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,13 +11,13 @@ import org.junit.Test;
  * @since 2018年11月6日10:32:02
  * */
 
-public class LeetCodeServiceTest extends SpringContext {
+public class ContestTest extends SpringContext {
 
-    private LeetCodeService leetCodeService;
+    private LinearService leetCodeService;
 
     @Before
     public void before(){
-        leetCodeService = (LeetCodeService) getBean("LeetCodeServiceImpl");
+        leetCodeService = (LinearService) getBean("LeetCodeServiceImpl");
     }
 
 

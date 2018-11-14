@@ -1,24 +1,24 @@
-package com.module.linearity;
+package com.module.leetcode.maintest;
 
-import com.common.codebar.LeetCodeTestService;
+import com.module.leetcode.explore.services.ArrayService;
 import com.common.context.SpringContext;
 import com.common.utils.ConsoleUtils;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * 数字类算法  测试类
+ * 数组类算法  测试类
  * @author suhe
  * @since 2018年11月6日10:32:02
  * */
 
-public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> {
+public class ExploreArrayTest extends SpringContext<ArrayService> {
 
-    private LeetCodeTestService leetCodeTestService;
+    private ArrayService arrayService;
 
     @Before
     public void before(){
-        leetCodeTestService  = getBean("leetCodeTestImpl");
+        arrayService  = getBean("arrayServiceImpl");
     }
 
     /**
@@ -27,7 +27,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     @Test
     public void removeDuplicates(){
         int[] target ={0,0,1,1,1,2,2,3,3,4};
-        int count = leetCodeTestService.removeDuplicates(target);
+        int count = arrayService.removeDuplicates(target);
         ConsoleUtils.printArray(target,count);
     }
 
@@ -37,7 +37,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     @Test
     public void maxProfit() {
         int[] target ={7,6,4,3,1};
-        int count = leetCodeTestService.maxProfit(target);
+        int count = arrayService.maxProfit(target);
         System.out.println(count);
     }
 
@@ -45,10 +45,10 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
      *  旋转数组
      * */
     @Test
-    public void rotate() {
+    public void rotateArray() {
         int[] target ={1,2,3,4,5,6};
         int k = 4;
-        leetCodeTestService.rotate(target,k);
+        arrayService.rotate(target,k);
         ConsoleUtils.printArray(target);
     }
 
@@ -58,7 +58,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     @Test
     public void containsDuplicate() {
         int[] target ={1,2,3,1};
-        Boolean bool = leetCodeTestService.containsDuplicate(target);
+        Boolean bool = arrayService.containsDuplicate(target);
         System.out.println(bool);
     }
 
@@ -68,7 +68,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     @Test
     public void singleNumber() {
         int [] target = {4,1,2,1,2};
-        int result = leetCodeTestService.singleNumber(target);
+        int result = arrayService.singleNumber(target);
         System.out.println(result);
     }
 
@@ -77,7 +77,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     public void intersect() {
         int [] num1 = {4,7,9,7,6,7};
         int [] num2 = {5,0,0,6,1,6,2,2,4};
-        int [] result = leetCodeTestService.intersect(num1,num2);
+        int [] result = arrayService.intersect(num1,num2);
         ConsoleUtils.printArray(result);
     }
 
@@ -86,7 +86,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     public void intersectOrder() {
         int [] num1 = {1,2,2,4,4,7};
         int [] num2 = {2,2,3};
-        int [] result = leetCodeTestService.intersectOrder(num1,num2);
+        int [] result = arrayService.intersectOrder(num1,num2);
         ConsoleUtils.printArray(result);
     }
 
@@ -97,8 +97,20 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     public void targetMade(){
         int [] numbers = {2, 7, 11, 15};
         int target = 9;
-        int [] result = leetCodeTestService.targetMakeUp(numbers,target);
+        int [] result = arrayService.targetMakeUp(numbers,target);
         ConsoleUtils.printArray(result);
+    }
+
+    /**
+     * 原地旋转图像
+     * */
+    @Test
+    public void rotate(){
+        int [][] numbers = {{1, 2, 3},
+                            {4, 5, 6},
+                            {7, 8, 9}};
+        arrayService.rotate(numbers);
+        ConsoleUtils.printArray(numbers);
     }
 
     /**
@@ -107,7 +119,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     @Test
     public void plusOne(){
         int [] numbers = {1,2,3};
-        int [] result = leetCodeTestService.plusOne(numbers);
+        int [] result = arrayService.plusOne(numbers);
         ConsoleUtils.printArray(result);
     }
 
@@ -117,35 +129,7 @@ public class LeetCodeTestServiceTest extends SpringContext<LeetCodeTestService> 
     @Test
     public void moveZeroes(){
         int [] numbers = {1};
-        leetCodeTestService.moveZeroesOrder(numbers);
+        arrayService.moveZeroesOrder(numbers);
         ConsoleUtils.printArray(numbers);
-    }
-
-    /**
-     * 反转字符串
-     * */
-    @Test
-    public void reverseString(){
-        String string = "A man, a plan, a canal: Panama";
-        String result = leetCodeTestService.reverseString(string);
-        System.out.println(result);
-    }
-
-    /**
-     * 反转整数
-     * */
-    @Test
-    public void reverse(){
-        int target = 1534236469;
-        System.out.println(leetCodeTestService.reverse(target));
-    }
-
-    /**
-     * 验证回文字符串
-     * */
-    @Test
-    public void isPalindrome(){
-        String target = " apG0i4maAs::sA0m4i0Gp0";
-        System.out.println(leetCodeTestService.isPalindrome(target));
     }
 }

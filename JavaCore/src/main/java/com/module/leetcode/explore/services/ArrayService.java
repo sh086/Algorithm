@@ -1,12 +1,12 @@
-package com.common.codebar;
+package com.module.leetcode.explore.services;
 
 /**
- * LeetCode练习算法
+ * 数组类 练习算法
  * @author suhe
  * @since 2018年11月10日07:04:33
  * */
 
-public interface LeetCodeTestService {
+public interface ArrayService {
 
     /**
      * 从排序数组中删除重复项,并保证数字有序
@@ -27,7 +27,7 @@ public interface LeetCodeTestService {
     int maxProfit(int[] prices);
 
     /***
-     *  将数组中的元素向右移动 k 个位置
+     *  将数组中的元素向右移动 k 个位置(旋转数组)
      * 方法：按照数组长度取余
      * 时间复杂度：O(n)  空间复杂度：O(1)
      * @param k  k 是非负数
@@ -35,7 +35,7 @@ public interface LeetCodeTestService {
     void rotate(int[] nums, int k);
 
     /**
-     * 判断是否存在重复元素
+     * 判断是否存在重复元素（存在重复）
      * 方法：使用set类型去重
      * 时间复杂度：O(n)  空间复杂度：O(1)
      * @return 如果任何值在数组中出现至少两次，函数返回 true
@@ -44,6 +44,7 @@ public interface LeetCodeTestService {
     boolean containsDuplicate(int[] nums);
 
     /**
+     * 只出现一次的数字
      * 非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素
      * 方法：只出现一下，则改数字
      * 时间复杂度：O(n)  空间复杂度：O(n)
@@ -72,14 +73,14 @@ public interface LeetCodeTestService {
     int[] intersectOrder(int[] nums1, int[] nums2);
 
     /**
-     * 整数组成的非空数组所表示的非负整数，在该数的基础上加一
+     * 整数组成的非空数组所表示的非负整数，在该数的基础上加一（加一）
      * 方法：只出现一下，则改数字
      * 时间复杂度：O(n)  空间复杂度：O(n)
      * */
     int[] plusOne(int[] digits);
 
     /**
-     * 将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序
+     * 将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序（移动零）
      * 方法：双标法，从尾部开始移动非0元素（无序）
      * 时间复杂度：O(n)  空间复杂度：O(1)
      * */
@@ -93,31 +94,16 @@ public interface LeetCodeTestService {
     void moveZeroesOrder(int[] nums);
 
     /**
-     * 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数
+     * 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数（两数之和）
      * 方法：遍历一遍哈希表
      * 时间复杂度：O(n)、空间复杂度O(n)
      * */
-    int[] targetMakeUp (int[] numbers, int target);
+    int[] targetMakeUp(int[] numbers, int target);
 
     /**
-     * 反转字符串
-     * 方法：分割字符为字符数组
-     * 时间复杂度：O(n)、空间复杂度O(1)
+     * 原地旋转图像
+     * 方法：遍历一遍哈希表
+     * 时间复杂度：O(n)、空间复杂度O(n)
      * */
-     String reverseString(String s);
-
-    /**
-     * 反转int整数
-     * 方法：求余数
-     * 时间复杂度：O(n)、空间复杂度O(1)
-     * */
-    int reverse(int x);
-
-    /**
-     * 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
-     * 方法：分割字符为字符数组
-     * 空间复杂度：O(n)、空间复杂度：O(n)
-     * */
-    boolean isPalindrome (String string);
-
+    void rotate(int[][] matrix);
 }

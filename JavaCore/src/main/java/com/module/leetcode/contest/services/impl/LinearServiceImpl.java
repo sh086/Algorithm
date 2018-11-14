@@ -1,19 +1,15 @@
-package com.common.codebar.impl;
+package com.module.leetcode.contest.services.impl;
 
-import org.junit.platform.commons.util.StringUtils;
 import org.springframework.stereotype.Service;
-import com.common.codebar.LeetCodeService;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.module.leetcode.contest.services.LinearService;
 
 /**
- * LeetCode题库算法 实现类
+ * 线性题库算法 实现类
  * @author suhe
  * @since 2018年11月10日07:04:56
  * */
 @Service
-public class LeetCodeServiceImpl implements LeetCodeService {
+public class LinearServiceImpl implements LinearService {
 
    @Override
     public boolean isPalindrome(int x) {
