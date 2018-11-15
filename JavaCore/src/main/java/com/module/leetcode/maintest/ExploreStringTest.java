@@ -74,4 +74,24 @@ public class ExploreStringTest extends SpringContext<StringService> {
         String target = "-91283472332";
         System.out.println(stringService.myAtoi(target));
     }
+
+    /**
+     * 实现strStr()
+     * */
+    @Test
+    public void strStr() {
+        String src = "mississippi";
+        String target = "issip";
+        System.out.println(stringService.strStr(src,target));
+    }
+
+
+    /**
+     * 报数
+     * */
+    @Test
+    public void countAndSay() {
+        int src = 5;
+        System.out.println(stringService.countAndSay(src));
+    }
 }

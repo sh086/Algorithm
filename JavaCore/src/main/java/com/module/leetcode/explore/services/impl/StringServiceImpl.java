@@ -145,4 +145,63 @@ public class StringServiceImpl implements StringService {
         }
         return temp.intValue();
     }
+
+    @Override
+    public int strStr(String haystack, String needle) {
+        char[] chars1 = haystack.toCharArray();
+        char[] chars2 = needle.toCharArray();
+        if(chars1.length > 0  && chars2.length > 0 ){
+            //遍历源数组，最大长度为 (desc - src)
+            for(int i = 0; i <= chars1.length - chars2.length; i++){
+                if(chars1[i] == chars2[0]){
+                    //表示是否包含
+                    Boolean flag = true;
+                    for(int j = 0; j < chars2.length; j++){
+                        if(chars1[i+j] != chars2[j]){
+                            flag = false; break;
+                        }
+                    }
+                    if(flag){
+                        //返回needle 字符串出现的第一个位置 (从0开始)
+                        return i;
+                    }
+                }
+            }
+        }
+        if(chars2.length == 0){
+            //若为空字符串，则需返回0
+            return 0;
+        }
+        //不存在，则返回  -1。
+        return -1;
+    }
+
+    @Override
+    public String countAndSay(int n) {
+        //约定取值范围
+        if( n > 30 || n < 1){
+            return "";
+        }
+        //递归结束条件
+        if(n == 1){
+            return "1";
+        }
+        String last = countAndSay(n-1);
+        char[] chars = last.toCharArray();
+        StringBuilder buffer = new StringBuilder();
+        //数量、数值
+        int count = 0;
+        char str = chars[0];
+        for(int i = 0; i < chars.length ; i++){
+            if(str == chars[i]){
+                count++;
+            }else {
+                buffer.append(count).append(str);
+                count = 1;
+                str = chars[i];
+            }
+        }
+        buffer.append(count).append(str);
+        return buffer.toString();
+    }
 }
