@@ -94,4 +94,22 @@ public class ExploreStringTest extends SpringContext<StringService> {
         int src = 5;
         System.out.println(stringService.countAndSay(src));
     }
+
+    /**
+     * 最长公共前缀
+     * */
+    @Test
+    public void longestCommonPrefix() {
+        String[] src =  {"aa","a"};
+        System.out.println(stringService.longestCommonPrefix(src));
+    }
+
+    /**
+     * 最长公共字符串
+     * */
+    @Test
+    public void longestCommonString() {
+        String[] src =  {"ca","a"};
+        System.out.println(stringService.longestCommonString(src));
+    }
 }

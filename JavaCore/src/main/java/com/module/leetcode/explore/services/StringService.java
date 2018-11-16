@@ -65,8 +65,24 @@ public interface StringService {
      * 实现strStr()
      * 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数
      * 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。
+     * 方法：递归
+     * 空间复杂度：O(n)
+     * */
+    String countAndSay(int n);
+
+    /**
+     * 最长公共前缀
+     * 查找字符串数组中的最长公共前缀
      * 方法：
      * 空间复杂度：O(n)、空间复杂度：O(n)
      * */
-    String countAndSay(int n);
+    String longestCommonPrefix(String[] strs);
+
+    /**
+     * 最长公共字符擦混
+     * 查找字符串数组中的最长公共前缀
+     * 方法：indexOf
+     * 空间复杂度：O(n)、空间复杂度：O(n)
+     * */
+    String longestCommonString(String[] strs);
 }

@@ -1,5 +1,6 @@
 package com.module.leetcode.explore.services.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.module.leetcode.explore.services.StringService;
 import org.springframework.stereotype.Service;
 
@@ -203,5 +204,70 @@ public class StringServiceImpl implements StringService {
         }
         buffer.append(count).append(str);
         return buffer.toString();
+    }
+
+    @Override
+    public String longestCommonPrefix(String[] strs) {
+        String prefix = "";
+        //约定取值范围
+        if(strs.length > 0){
+            //获取第一个字符串
+            String firstString = strs[0];
+            //倒叙处理 [0,i)，左闭右开区间
+            for(int i = firstString.length(); i > 0; i--){
+                String string = firstString.substring(0,i);
+                int count = 1;
+                for(int n = 1; n < strs.length; n++){
+                    if(i <= strs[n].length() &&
+                            //或使用startWith函数判别
+                            string.equals(strs[n].substring(0,i))){
+                        count++;
+                    }
+                }
+                //判断
+                if(count == strs.length){
+                    prefix = string; break;
+                }
+            }
+        }
+        return prefix;
+    }
+
+    @Override
+    public String longestCommonString(String[] strs) {
+        System.out.println(JSONObject.toJSONString(strs));
+        String prefix = "";
+        //约定取值范围
+        if(strs.length <= 0){
+            return prefix;
+        }
+        //推入公共前缀到Set中
+        Set<String> set = new HashSet<>();
+        String firstString = strs[0];
+        //左闭右开区间
+        for(int i = 0; i < firstString.length(); i++){
+            for(int j = i+1; j <= firstString.length(); j++){
+                String string = firstString.substring(i,j);
+                Boolean flag = true;
+                for(int n = 1; n < strs.length; n++){
+                    int index = strs[n].indexOf(string);
+                    if(index == -1){
+                        flag = false;break;
+                    }
+                }
+                if(flag){
+                    set.add(firstString.substring(i,j));
+                }
+            }
+        }
+        //获取最长公共前缀
+        Iterator<String> iterator = set.iterator();
+        while (iterator.hasNext()){
+            String string = iterator.next();
+            if(string.length() > prefix.length()){
+                prefix = string;
+            }
+        }
+        return prefix;
     }
 }
