@@ -1,0 +1,16 @@
+logging:
+  file: /logs/logs.log
+  level:
+    root: info
+    org.mybatis: info
+    org.springframework: info
+    org.springframework.jdbc: debug
+    com.module: debug
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://56.56.56.165:3306/crm?characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123

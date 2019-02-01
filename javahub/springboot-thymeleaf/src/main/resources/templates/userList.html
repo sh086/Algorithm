@@ -18,6 +18,7 @@
                 <td th:text="${user.age}"></td>
             </tr>
             <tr th:each = "map,var : ${maps}">
+                <td th:text="${var.index}"></td>
                 <td th:text="${var.count}"></td>
                 <td th:each="entry:${map}" th:text="${map.key}"></td>
                 <td th:each="entry:${map}" th:text="${map.value}"></td>
