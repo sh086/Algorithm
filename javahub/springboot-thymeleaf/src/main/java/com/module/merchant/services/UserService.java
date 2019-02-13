@@ -12,7 +12,7 @@ import java.util.List;
  * */
 public interface UserService {
 
-    void insertUser(UserModal userModal);
+    void insertUser(User user);
 
     void deleteById(Long id);
 

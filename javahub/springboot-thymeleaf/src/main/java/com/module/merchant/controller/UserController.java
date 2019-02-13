@@ -1,4 +1,5 @@
 package com.module.merchant.controller;
+import com.common.converter.orika.BeanConvertUtil;
 import com.common.response.ResultModal;
 import com.module.merchant.domain.User;
 import com.module.merchant.modal.UserModal;
@@ -8,9 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * 用户管理 前端控制器
@@ -26,6 +29,8 @@ public class UserController {
     private static final String USER_INDEX = "user/index";
 
     private static final String USER_ADD = "user/add";
+
+    private static final String REDIRECT_USER_ADD = "redirect:/user";
 
     private static final String USER_UPDATE = "user/update";
 
@@ -46,7 +51,7 @@ public class UserController {
      * 新增用户
      * */
     @GetMapping("/add")
-    public String addView(){
+    public String addView(UserModal userModal){
         return USER_ADD;
     }
 
@@ -54,9 +59,13 @@ public class UserController {
      * 新增用户
      * */
     @PostMapping("/add")
-    public String insertUser(UserModal userModal){
-        userService.insertUser(userModal);
-        return "redirect:/user/";
+    public String insertUser(@Valid UserModal userModal, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return USER_ADD;
+        }
+        User user = BeanConvertUtil.getMapper().map(userModal,User.class);
+        userService.insertUser(user);
+        return REDIRECT_USER_ADD;
     }
 
     /**

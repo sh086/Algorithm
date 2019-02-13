@@ -1,6 +1,5 @@
 package com.module.merchant.services.impl;
 
-import com.common.converter.orika.BeanConvertUtil;
 import com.google.common.collect.Maps;
 import com.module.merchant.domain.User;
 import com.module.merchant.mapper.UserMapper;
@@ -8,14 +7,10 @@ import com.module.merchant.modal.UserModal;
 import com.module.merchant.services.UserService;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 用户管理服务实现类
@@ -40,14 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void insertUser(@NonNull UserModal userModal) {
-        User user = BeanConvertUtil.getMapper().map(userModal,User.class);
-        if(StringUtils.isBlank(user.getName())){
-            throw new RuntimeException("姓名不能为空");
-        }
-        if(user.getAge() == null){
-            throw new RuntimeException("年龄不能为空！");
-        }
+    public void insertUser(@NonNull User user) {
         userMapper.insertUser(user);
     }
 

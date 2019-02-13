@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>新增用户</title>
 </head>
 <body>
-<div align="center">
-    <form method="post" action="/user/add">
-        <label>姓名：<input name="name"/> </label><br/>
-        <label>年龄：<input name="age"/></label><br/>
-        <button type="submit">提交</button>
-        <button type="reset">重置</button>
-    </form>
-</div>
+    <div align="center">
+        <form method="post" th:action="@{/user/add}">
+            用户名：<input type="text" name="name"/><font th:errors="${userModal.name}" style="color: red;"></font><br/>
+            密  码：<input type="password" name="passWord"/><font th:errors="${userModal.passWord}" style="color: red;"></font><br/>
+            邮  箱：<input type="text" name="email"/><font th:errors="${userModal.email}" style="color: red;"></font><br/>
+            年  龄：<input  type="text" name="age"/><font th:errors="${userModal.age}" style="color: red;"></font><br/>
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </form>
+    </div>
 </body>
 </html>
