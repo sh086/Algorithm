@@ -2,23 +2,13 @@ package com.module;
 
 import com.Application;
 import com.module.merchant.domain.User;
-import com.module.merchant.modal.UserModal;
 import com.module.merchant.services.UserService;
-import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Controller;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.annotation.Resource;
-import javax.validation.Valid;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -26,6 +16,20 @@ public class UserControllerTest {
 
     @Resource
     private UserService userService;
+
+    @Test
+    public void searchUser(){
+        User page =  new User();
+        val users = userService.searchUsers(page);
+        System.out.println("-+-+-+-+-+-+-+-+");
+        User addUser = new User();
+        addUser.setAge(1);
+        addUser.setName("2");
+        userService.insertUser(addUser);
+        System.out.println("-+-+-+-+-+-+-+-+");
+        val uses = userService.searchUsers(page);
+        System.out.println("-+-+-+-+-+-+-+-+");
+    }
 
     /**
      * 新增用户

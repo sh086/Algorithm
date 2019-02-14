@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 视图跳转前端控制器
@@ -17,7 +18,7 @@ public class ViewController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("msg","欢迎访问");
+        model.addAttribute("msg","欢迎访问2");
         return INDEX;
     }
 

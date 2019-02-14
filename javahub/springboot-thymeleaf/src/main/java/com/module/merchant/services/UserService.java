@@ -1,8 +1,6 @@
 package com.module.merchant.services;
 
 import com.module.merchant.domain.User;
-import com.module.merchant.modal.UserModal;
-
 import java.util.List;
 
 /**
@@ -18,7 +16,7 @@ public interface UserService {
 
     void updateById(User user);
 
-    List<User> searchUsers(UserModal userModal);
+    List<User> searchUsers(User user);
 
     User searchById(Long id);
 }

@@ -1,7 +1,6 @@
 package com.module.merchant.mapper;
 
 import com.module.merchant.domain.User;
-import com.module.merchant.modal.UserModal;
 import java.util.List;
 import java.util.Map;
 
@@ -14,5 +13,5 @@ public interface UserMapper {
     void insertUser(User user);
     void deleteUser(Map params);
     void updateById(User user);
-    List<User> searchUsers(UserModal userModal);
+    List<User> searchUsers(User user);
 }

@@ -80,6 +80,16 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.8</version>
         </dependency>
+        <!--SpringBoot缓存支持启动器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <!--Ehcache坐标-->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
     </dependencies>
 
 	<build>

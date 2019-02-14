@@ -42,13 +42,15 @@ public class UserController {
      * */
     @GetMapping("/")
     public String searchUsers(Model model,UserModal userModal){
-        val users = userService.searchUsers(userModal);
+        User user = BeanConvertUtil.getMapper().map(userModal,User.class);
+        val users = userService.searchUsers(user);
         model.addAttribute("users",users);
         return USER_INDEX;
     }
 
     /**
      * 新增用户
+     * @param userModal 用于服务端数据校验
      * */
     @GetMapping("/add")
     public String addView(UserModal userModal){
