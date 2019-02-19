@@ -14,23 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ViewController {
 
-    private static final String INDEX = "index";
-
-    @GetMapping("/")
-    public String index(Model model){
-        model.addAttribute("msg","欢迎访问2");
-        return INDEX;
-    }
-
     @GetMapping("/view/{page}")
     public String page(@PathVariable String page,Model model,Integer id){
-        model.addAttribute("msg",id);
         return page;
     }
 
     @GetMapping("/view-restful/{page}/{id}")
     public String page(@PathVariable String page,@PathVariable Integer id, Model model){
-        model.addAttribute("msg",id);
         return page;
     }
 }

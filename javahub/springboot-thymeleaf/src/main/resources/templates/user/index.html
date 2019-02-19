@@ -1,19 +1,20 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
     <head>
         <title>用户数据</title>
         <meta charset="utf-8"/>
     </head>
     <body>
         <div align="center">
-            <a href="/user/add">
-                <button type="button">新增用户</button>
-            </a>
+            <div shiro:hasPermission="user:add">
+                <a href="/user/add"><button type="button">新增用户</button></a>
+            </div>
             <table border="1" width="50%" align="center">
                 <tr>
                     <td>NO</td>
                     <td>ID</td>
                     <td>NAME</td>
                     <td>AGE</td>
+                    <td>EMAIL</td>
                     <td>操作</td>
                 </tr>
                 <tr th:each = "user,var : ${users}">
@@ -21,9 +22,14 @@
                     <td th:text="${user.id}"></td>
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.age}"></td>
+                    <td th:text="${user.email}"></td>
                     <td >
-                        <a th:href="@{/user/update/{id}/(id = ${user.id})}">更新</a>
-                        <a th:href="@{/user/delete/{id}/(id = ${user.id})}">删除</a>
+                        <div shiro:hasPermission="user:update">
+                            <a th:href="@{/user/update/{id}/(id = ${user.id})}">更新</a>
+                        </div>
+                        <div shiro:hasPermission="user:delete">
+                            <a th:href="@{/user/delete/{id}/(id = ${user.id})}">删除</a>
+                        </div>
                     </td>
                 </tr>
             </table>

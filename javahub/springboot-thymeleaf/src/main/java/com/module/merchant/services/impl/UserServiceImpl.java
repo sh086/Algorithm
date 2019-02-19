@@ -6,10 +6,12 @@ import com.module.merchant.mapper.UserMapper;
 import com.module.merchant.services.UserService;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import javax.validation.constraints.NotBlank;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,6 +37,16 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setId(id);
         return userMapper.searchUsers(user).get(0);
+    }
+
+    @Override
+    public User searchByName(String name) {
+        if(StringUtils.isBlank(name)){
+            return null;
+        }
+        HashMap<String,String> params = Maps.newHashMap();
+        params.put("name",name);
+        return userMapper.selectByName(params);
     }
 
     @Override

@@ -23,7 +23,6 @@ public class UserControllerTest {
         val users = userService.searchUsers(page);
         System.out.println("-+-+-+-+-+-+-+-+");
         User addUser = new User();
-        addUser.setAge(1);
         addUser.setName("2");
         userService.insertUser(addUser);
         System.out.println("-+-+-+-+-+-+-+-+");
@@ -38,7 +37,6 @@ public class UserControllerTest {
     public void insertUser(){
         User user = new User();
         user.setName("测试");
-        user.setAge(12);
         userService.insertUser(user);
     }
 }

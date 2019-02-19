@@ -3,7 +3,7 @@
 <mapper namespace="com.module.merchant.mapper.UserMapper">
 
     <!--按条件查询用户信息-->
-    <select id="searchUsers"  parameterType="User" resultType="User">
+    <select id="searchUsers"  parameterType="user" resultType="user">
       select * from tc_user
         <where>
             <if test="id != null">
@@ -12,14 +12,21 @@
             <if test="name != null">
                 AND name = ${name}
             </if>
-            <if test="age != null">
-                AND age = ${age}
+        </where>
+    </select>
+
+    <!--按条件查询用户信息-->
+    <select id="selectByName"  parameterType="string" resultType="user">
+        select *,role_id as roleId from tc_user
+        <where>
+            <if test="name != null">
+                AND name = '${name}'
             </if>
         </where>
     </select>
 
     <insert id="insertUser" parameterType="User">
-        INSERT INTO  tc_user (name,age) VALUE ('${name}','${age}')
+        INSERT INTO  tc_user (name,age,password,email) VALUE ('${name}','${age}','${passWord}','${email}')
     </insert>
 
     <delete id="deleteUser">

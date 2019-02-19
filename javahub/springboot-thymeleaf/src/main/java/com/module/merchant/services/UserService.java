@@ -19,4 +19,6 @@ public interface UserService {
     List<User> searchUsers(User user);
 
     User searchById(Long id);
+
+    User searchByName(String name);
 }

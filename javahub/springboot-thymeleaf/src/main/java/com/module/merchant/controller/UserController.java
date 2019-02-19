@@ -30,7 +30,7 @@ public class UserController {
 
     private static final String USER_ADD = "user/add";
 
-    private static final String REDIRECT_USER_ADD = "redirect:/user";
+    private static final String REDIRECT_USER_INDEX = "redirect:/user/index";
 
     private static final String USER_UPDATE = "user/update";
 
@@ -40,7 +40,7 @@ public class UserController {
     /**
      * 分页查询当前用户
      * */
-    @GetMapping("/")
+    @GetMapping("/index")
     public String searchUsers(Model model,UserModal userModal){
         User user = BeanConvertUtil.getMapper().map(userModal,User.class);
         val users = userService.searchUsers(user);
@@ -61,13 +61,14 @@ public class UserController {
      * 新增用户
      * */
     @PostMapping("/add")
-    public String insertUser(@Valid UserModal userModal, BindingResult bindingResult){
+    public String insertUser(@Valid UserModal userModal, BindingResult bindingResult,Model model){
         if(bindingResult.hasErrors()){
+            model.addAttribute(userModal);
             return USER_ADD;
         }
         User user = BeanConvertUtil.getMapper().map(userModal,User.class);
         userService.insertUser(user);
-        return REDIRECT_USER_ADD;
+        return REDIRECT_USER_INDEX;
     }
 
     /**
@@ -76,7 +77,7 @@ public class UserController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id,Model model){
         userService.deleteById(id);
-        return "redirect:/user/";
+        return REDIRECT_USER_INDEX;
     }
 
     /**
@@ -95,7 +96,7 @@ public class UserController {
     @PostMapping("/update")
     public String updateById(User user){
         userService.updateById(user);
-        return "redirect:/user/";
+        return REDIRECT_USER_INDEX;
     }
 
 }

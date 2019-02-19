@@ -1,4 +1,4 @@
-package com.module.merchant.controller;
+package com.common.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

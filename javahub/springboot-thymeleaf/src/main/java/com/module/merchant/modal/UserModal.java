@@ -17,7 +17,7 @@ public class UserModal {
     private Long id;
 
     @NotBlank(message = "用户名不能为空")
-    @Length(min = 3,max = 255,message = "用户名长度必须在3-255个字符")
+    @Length(min = 2,max = 255,message = "用户名长度必须在3-255个字符")
     private String name;
 
     @Min(value = 18,message = "年龄必须满18岁")

@@ -13,5 +13,8 @@ import java.io.Serializable;
 public class User implements Serializable {
     private Long id;
     private String name;
+    private String passWord;
+    private String email;
     private Integer age;
+    private Long roleId;
 }

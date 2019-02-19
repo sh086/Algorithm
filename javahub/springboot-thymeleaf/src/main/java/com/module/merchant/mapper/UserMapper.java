@@ -14,4 +14,5 @@ public interface UserMapper {
     void deleteUser(Map params);
     void updateById(User user);
     List<User> searchUsers(User user);
+    User selectByName(Map params);
 }

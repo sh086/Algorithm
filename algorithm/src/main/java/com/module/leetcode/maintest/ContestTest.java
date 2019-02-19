@@ -1,9 +1,13 @@
 package com.module.leetcode.maintest;
 
+import com.Application;
 import com.module.leetcode.contest.services.LinearService;
 import com.common.context.SpringContext;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * 数字类算法  测试类
@@ -11,6 +15,8 @@ import org.junit.Test;
  * @since 2018年11月6日10:32:02
  * */
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = Application.class)
 public class ContestTest extends SpringContext {
 
     private LinearService leetCodeService;
