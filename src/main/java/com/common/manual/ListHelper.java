@@ -1,7 +1,7 @@
 package com.common.manual;
 
 import lombok.val;
-import org.junit.platform.commons.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;

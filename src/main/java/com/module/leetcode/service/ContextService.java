@@ -1,13 +1,6 @@
-package com.module.leetcode.contest.services;
+package com.module.leetcode.service;
 
-
-/**
- * 线性题库算法
- * @author suhe
- * @since 2018年11月10日07:04:33
- * */
-public interface LinearService {
-
+public interface ContextService {
 
     /**
      * 判断整数是否是回文数

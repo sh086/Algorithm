@@ -1,7 +1,7 @@
-package com.module.leetcode.contest.services.impl;
+package com.module.leetcode.service.impl;
 
+import com.module.leetcode.service.ContextService;
 import org.springframework.stereotype.Service;
-import com.module.leetcode.contest.services.LinearService;
 
 /**
  * 线性题库算法 实现类
@@ -9,7 +9,7 @@ import com.module.leetcode.contest.services.LinearService;
  * @since 2018年11月10日07:04:56
  * */
 @Service
-public class LinearServiceImpl implements LinearService {
+public class LinearServiceImpl implements ContextService {
 
    @Override
     public boolean isPalindrome(int x) {
