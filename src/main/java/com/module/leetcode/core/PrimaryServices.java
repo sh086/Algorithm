@@ -1,4 +1,4 @@
-package com.module.leetcode.service;
+package com.module.leetcode.core;
 
 /**
  * LeetCode初级算法

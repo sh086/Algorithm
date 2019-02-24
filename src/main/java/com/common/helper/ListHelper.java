@@ -1,4 +1,4 @@
-package com.common.manual;
+package com.common.helper;
 
 import lombok.val;
 import org.apache.commons.lang3.StringUtils;

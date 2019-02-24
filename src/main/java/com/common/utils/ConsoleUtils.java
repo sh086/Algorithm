@@ -11,42 +11,46 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ConsoleUtils {
 
-    /**打印一维数组*/
+    /**
+     * 打印一维数组
+     * */
     public static void printArray(int [] nums){
         if(nums == null || nums.length <=0){
-            System.out.println("null");
+           log.info("null");
             return;
         }
         for(Integer num : nums){
-            System.out.print(num +"  ");
+            log.info("{}  ",num);
         }
-        System.out.println();
     }
 
-    /**打印一维数组的部分*/
+    /**
+     * 打印n个一维数组
+     * */
     public static void printArray(int [] nums,int n){
         if(nums == null || nums.length <=0){
-            System.out.println("null");
+            log.info("null");
             return;
         }
         if(n > nums.length){
             n = nums.length;
         }
         for(int i = 0; i<n;i++){
-            System.out.print(nums[i] +"  ");
+            log.info("{}  ",nums[i]);
         }
-        System.out.println();
     }
 
-    /**打印二维数组*/
+    /**
+     * 打印二维数组
+     * */
     public static void printArray(int [][] nums){
         if(nums == null || nums.length <=0){
-            System.out.println("null");
+            log.info("null");
             return;
         }
         for(int [] num : nums){
             printArray(num);
+            System.out.println();
         }
-        System.out.println();
     }
 }

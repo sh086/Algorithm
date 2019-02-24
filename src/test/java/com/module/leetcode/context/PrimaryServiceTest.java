@@ -1,7 +1,7 @@
-package com.module.leetcode;
+package com.module.leetcode.context;
 
 import com.common.utils.ConsoleUtils;
-import com.module.leetcode.service.PrimaryServices;
+import com.module.leetcode.core.PrimaryServices;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class PrimaryAlgorithmTest {
+public class PrimaryServiceTest {
 
     @Resource
     private PrimaryServices primaryAlgorithm;

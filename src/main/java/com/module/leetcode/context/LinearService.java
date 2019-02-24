@@ -1,6 +1,6 @@
-package com.module.leetcode.service;
+package com.module.leetcode.context;
 
-public interface ContextService {
+public interface LinearService {
 
     /**
      * 判断整数是否是回文数

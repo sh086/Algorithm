@@ -1,6 +1,6 @@
-package com.module.leetcode.service.impl;
+package com.module.leetcode.context.impl;
 
-import com.module.leetcode.service.PrimaryServices;
+import com.module.leetcode.core.PrimaryServices;
 
 import java.util.*;
 

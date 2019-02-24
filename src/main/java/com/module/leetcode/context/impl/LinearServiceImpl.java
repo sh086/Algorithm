@@ -1,6 +1,6 @@
-package com.module.leetcode.service.impl;
+package com.module.leetcode.context.impl;
 
-import com.module.leetcode.service.ContextService;
+import com.module.leetcode.context.LinearService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * @since 2018年11月10日07:04:56
  * */
 @Service
-public class LinearServiceImpl implements ContextService {
+public class LinearServiceImpl implements LinearService {
 
    @Override
     public boolean isPalindrome(int x) {
@@ -27,8 +27,8 @@ public class LinearServiceImpl implements ContextService {
             x /= 10;
         }
 
-        //当位数为奇数时，可以通过 反转数字/10 去除处于中位的数字。
         //当位数为偶数时，原始数字 = 反转数字
+        //当位数为奇数时，可以通过 反转数字/10 去除处于中位的数字
         return x == revertedNumber || x == revertedNumber/10;
     }
 }

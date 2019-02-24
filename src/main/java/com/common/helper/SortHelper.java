@@ -1,4 +1,4 @@
-package com.common.manual;
+package com.common.helper;
 
 public class SortHelper {
 }
