@@ -1,7 +1,10 @@
 package com.module.leetcode.context;
 
-import com.common.utils.ConsoleUtils;
+import com.Application;
+import com.common.utils.ArrayUtils;
 import com.module.leetcode.core.PrimaryServices;
+import com.common.modal.ListNode;
+import com.common.utils.ListUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,11 +13,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = Application.class)
 public class PrimaryServiceTest {
 
     @Resource
-    private PrimaryServices primaryAlgorithm;
+    private PrimaryServices primaryServices;
 
 
     /**
@@ -23,8 +26,8 @@ public class PrimaryServiceTest {
     @Test
     public void removeDuplicates(){
         int[] target ={0,0,1,1,1,2,2,3,3,4};
-        int count = primaryAlgorithm.removeDuplicates(target);
-        ConsoleUtils.printArray(target,count);
+        int count = primaryServices.removeDuplicates(target);
+        ArrayUtils.printArray(target,count);
     }
 
     /**
@@ -33,7 +36,7 @@ public class PrimaryServiceTest {
     @Test
     public void maxProfit() {
         int[] target ={7,6,4,3,1};
-        int count = primaryAlgorithm.maxProfit(target);
+        int count = primaryServices.maxProfit(target);
         System.out.println(count);
     }
 
@@ -44,8 +47,8 @@ public class PrimaryServiceTest {
     public void rotateArray() {
         int[] target ={1,2,3,4,5,6};
         int k = 4;
-        primaryAlgorithm.rotate(target,k);
-        ConsoleUtils.printArray(target);
+        primaryServices.rotate(target,k);
+        ArrayUtils.printArray(target);
     }
 
     /**
@@ -54,7 +57,7 @@ public class PrimaryServiceTest {
     @Test
     public void containsDuplicate() {
         int[] target ={1,2,3,1};
-        Boolean bool = primaryAlgorithm.containsDuplicate(target);
+        Boolean bool = primaryServices.containsDuplicate(target);
         System.out.println(bool);
     }
 
@@ -64,7 +67,7 @@ public class PrimaryServiceTest {
     @Test
     public void singleNumber() {
         int [] target = {4,1,2,1,2};
-        int result = primaryAlgorithm.singleNumber(target);
+        int result = primaryServices.singleNumber(target);
         System.out.println(result);
     }
 
@@ -73,8 +76,8 @@ public class PrimaryServiceTest {
     public void intersect() {
         int [] num1 = {4,7,9,7,6,7};
         int [] num2 = {5,0,0,6,1,6,2,2,4};
-        int [] result = primaryAlgorithm.intersect(num1,num2);
-        ConsoleUtils.printArray(result);
+        int [] result = primaryServices.intersect(num1,num2);
+        ArrayUtils.printArray(result);
     }
 
     /**两个正序数组的交集 II*/
@@ -82,8 +85,8 @@ public class PrimaryServiceTest {
     public void intersectOrder() {
         int [] num1 = {1,2,2,4,4,7};
         int [] num2 = {2,2,3};
-        int [] result = primaryAlgorithm.intersectOrder(num1,num2);
-        ConsoleUtils.printArray(result);
+        int [] result = primaryServices.intersectOrder(num1,num2);
+        ArrayUtils.printArray(result);
     }
 
     /**
@@ -93,8 +96,8 @@ public class PrimaryServiceTest {
     public void targetMade(){
         int [] numbers = {2, 7, 11, 15};
         int target = 9;
-        int [] result = primaryAlgorithm.targetMakeUp(numbers,target);
-        ConsoleUtils.printArray(result);
+        int [] result = primaryServices.targetMakeUp(numbers,target);
+        ArrayUtils.printArray(result);
     }
 
     /**
@@ -105,8 +108,8 @@ public class PrimaryServiceTest {
         int [][] numbers = {{1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}};
-        primaryAlgorithm.rotate(numbers);
-        ConsoleUtils.printArray(numbers);
+        primaryServices.rotate(numbers);
+        ArrayUtils.printArray(numbers);
     }
 
     /**
@@ -115,8 +118,8 @@ public class PrimaryServiceTest {
     @Test
     public void plusOne(){
         int [] numbers = {1,2,3};
-        int [] result = primaryAlgorithm.plusOne(numbers);
-        ConsoleUtils.printArray(result);
+        int [] result = primaryServices.plusOne(numbers);
+        ArrayUtils.printArray(result);
     }
 
     /**
@@ -125,8 +128,8 @@ public class PrimaryServiceTest {
     @Test
     public void moveZeroes(){
         int [] numbers = {1};
-        primaryAlgorithm.moveZeroesOrder(numbers);
-        ConsoleUtils.printArray(numbers);
+        primaryServices.moveZeroesOrder(numbers);
+        ArrayUtils.printArray(numbers);
     }
 
     /**
@@ -135,7 +138,7 @@ public class PrimaryServiceTest {
     @Test
     public void reverseString(){
         String string = "A man, a plan, a canal: Panama";
-        String result = primaryAlgorithm.reverseString(string);
+        String result = primaryServices.reverseString(string);
         System.out.println(result);
     }
 
@@ -145,7 +148,7 @@ public class PrimaryServiceTest {
     @Test
     public void reverse(){
         int target = 1534236469;
-        System.out.println(primaryAlgorithm.reverse(target));
+        System.out.println(primaryServices.reverse(target));
     }
 
     /**
@@ -154,7 +157,7 @@ public class PrimaryServiceTest {
     @Test
     public void firstUniqChar(){
         String string = "loveleetcode";
-        System.out.println(primaryAlgorithm.firstUniqChar(string));
+        System.out.println(primaryServices.firstUniqChar(string));
     }
 
     /**
@@ -163,7 +166,7 @@ public class PrimaryServiceTest {
     @Test
     public void isAnagram(){
         String s = "anagram", t = "nagaram";
-        System.out.println(primaryAlgorithm.isAnagram(s,t));
+        System.out.println(primaryServices.isAnagram(s,t));
     }
 
     /**
@@ -172,7 +175,7 @@ public class PrimaryServiceTest {
     @Test
     public void isPalindrome(){
         String target = " apG0i4maAs::sA0m4i0Gp0";
-        System.out.println(primaryAlgorithm.isPalindrome(target));
+        System.out.println(primaryServices.isPalindrome(target));
     }
 
     /**
@@ -181,7 +184,7 @@ public class PrimaryServiceTest {
     @Test
     public void myAtoi(){
         String target = "-91283472332";
-        System.out.println(primaryAlgorithm.myAtoi(target));
+        System.out.println(primaryServices.myAtoi(target));
     }
 
     /**
@@ -191,7 +194,7 @@ public class PrimaryServiceTest {
     public void strStr() {
         String src = "mississippi";
         String target = "issip";
-        System.out.println(primaryAlgorithm.strStr(src,target));
+        System.out.println(primaryServices.strStr(src,target));
     }
 
 
@@ -201,7 +204,7 @@ public class PrimaryServiceTest {
     @Test
     public void countAndSay() {
         int src = 5;
-        System.out.println(primaryAlgorithm.countAndSay(src));
+        System.out.println(primaryServices.countAndSay(src));
     }
 
     /**
@@ -210,7 +213,7 @@ public class PrimaryServiceTest {
     @Test
     public void longestCommonPrefix() {
         String[] src =  {"aa","a"};
-        System.out.println(primaryAlgorithm.longestCommonPrefix(src));
+        System.out.println(primaryServices.longestCommonPrefix(src));
     }
 
     /**
@@ -219,6 +222,15 @@ public class PrimaryServiceTest {
     @Test
     public void longestCommonString() {
         String[] src =  {"ca","a"};
-        System.out.println(primaryAlgorithm.longestCommonString(src));
+        System.out.println(primaryServices.longestCommonString(src));
+    }
+
+    /**
+     *  删除链表的倒数第N个节点
+     * */
+    @Test
+    public void removeNthFromEnd() {
+        ListNode head = ListUtils.changeStringToList(" [1,2]");
+        ListUtils.printLinkList(primaryServices.removeNthFromEnd(head,1));
     }
 }

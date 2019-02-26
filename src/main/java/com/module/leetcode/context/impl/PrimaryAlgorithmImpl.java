@@ -1,9 +1,12 @@
 package com.module.leetcode.context.impl;
 
 import com.module.leetcode.core.PrimaryServices;
+import com.common.modal.ListNode;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class PrimaryAlgorithmImpl implements PrimaryServices {
 
     @Override
@@ -463,5 +466,32 @@ public class PrimaryAlgorithmImpl implements PrimaryServices {
             }
         }
         return prefix;
+    }
+
+    @Override
+    public void deleteNode(ListNode node) {
+        // 非末尾 表明我们可以通过node 找到 下一个节点，不需要判断node为空
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+
+    @Override
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode indexNode = head;
+        ListNode deleteNode = head;
+        while( n-- > 1 ){
+            indexNode = indexNode.next;
+        }
+        while(indexNode != null){
+            deleteNode = deleteNode.next;
+            indexNode = indexNode.next;
+        }
+        if(deleteNode.next != null){
+            deleteNode.val = deleteNode.next.val;
+            deleteNode.next = deleteNode.next.next;
+        }else {
+            return null;
+        }
+        return head;
     }
 }

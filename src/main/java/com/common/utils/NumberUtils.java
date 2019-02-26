@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 类型转化 工具类
+ * Number 工具类
  * @author suhe
  * @since 2018年11月9日11:32:19
  * */
-public class ConvertUtils {
+public class NumberUtils {
     /**
      * 转换整形数组为包装类型
      * */

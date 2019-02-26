@@ -1,5 +1,7 @@
 package com.module.leetcode.core;
 
+import com.common.modal.ListNode;
+
 /**
  * LeetCode初级算法
  * @author suhe
@@ -183,4 +185,19 @@ public interface PrimaryServices {
      * 空间复杂度：O(n)、空间复杂度：O(n)
      * */
     String longestCommonString(String[] strs);
+
+
+    /**
+     * 删除链表中的节点
+     * 删除某个链表中给定的（非末尾）节点
+     * 注：链表中所有节点的值都是唯一的
+     * 时间复杂度：O(1) 空间复杂度：O(1)
+     * */
+    void deleteNode(ListNode node);
+
+    /**
+     * 删除链表的倒数第N个节点
+     * 删除链表的倒数第 n 个节点，并且返回链表的头结点
+     * */
+    ListNode removeNthFromEnd(ListNode head, int n);
 }
