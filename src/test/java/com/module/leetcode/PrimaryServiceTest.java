@@ -1,7 +1,8 @@
-package com.module.leetcode.context;
+package com.module.leetcode;
 
 import com.Application;
 import com.common.utils.ArrayUtils;
+import com.google.common.collect.Maps;
 import com.module.leetcode.core.PrimaryServices;
 import com.common.modal.ListNode;
 import com.common.utils.ListUtils;
@@ -11,6 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -230,7 +234,15 @@ public class PrimaryServiceTest {
      * */
     @Test
     public void removeNthFromEnd() {
-        ListNode head = ListUtils.changeStringToList(" [1,2]");
-        ListUtils.printLinkList(primaryServices.removeNthFromEnd(head,1));
+//        List<Map<String,Integer>> test =
+//
+//        HashMap<String,Integer> map = Maps.newHashMap();
+//        map.put("[1,2]",1);
+//        for(int i = 0; i<map.size();i++){}
+//
+//        while(map.size()>0){
+//            ListNode head = ListUtils.changeStringToList(map.ge);
+//            ListUtils.printLinkList(primaryServices.removeNthFromEnd(head,1));
+//        }
     }
 }
