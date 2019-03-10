@@ -1,6 +1,6 @@
-package com.module.leetcode.context.impl;
+package com.module.leetcode.impl;
 
-import com.module.leetcode.context.LinearService;
+import com.module.leetcode.LinearService;
 import org.springframework.stereotype.Service;
 
 /**

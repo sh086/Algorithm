@@ -1,4 +1,4 @@
-package com.module.leetcode.context;
+package com.module.leetcode;
 
 public interface LinearService {
 

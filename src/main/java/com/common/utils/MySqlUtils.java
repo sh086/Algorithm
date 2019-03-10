@@ -8,6 +8,8 @@ import com.alibaba.druid.util.JdbcConstants;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
+import org.springframework.stereotype.Component;
+
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,7 @@ import java.util.Map;
  * @author suhe
  * @since 2019年2月28日11:56:21
  * */
+@Component
 @Slf4j
 public class MySqlUtils {
 

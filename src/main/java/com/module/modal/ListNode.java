@@ -1,4 +1,4 @@
-package com.common.modal;
+package com.module.modal;
 
 public class ListNode {
     public int val;

@@ -9,6 +9,20 @@ import lombok.extern.slf4j.Slf4j;
  * */
 @Slf4j
 public class ArrayUtils {
+
+    /**
+     * 翻转数组
+     * @param nums 需要反转的数组
+     * @param start 开始下标
+     * @param end 结束下标
+     * */
+    public static void reverse(int[] nums,int start,int end){
+        while(start < end){
+            NumberUtils.swap(nums,start,end);
+            start++;end--;
+        }
+    }
+
     /**
      * 打印一维数组
      * */

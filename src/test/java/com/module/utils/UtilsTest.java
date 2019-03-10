@@ -18,8 +18,8 @@ public class UtilsTest {
      * 解析SQL中的Where过滤条件
      * */
     @Test
-    public void sqlTest(){
-        String sql = "select sourceId,merchantCode,ywQuaId,quaName,quaType,brand,nameCh,nameEn,content,unit,materials,element,batteryType,eleVolume,decValue,currency,productLink,hsCode,remark,createDate,verifyDate,verifyStatus,validDateTo,verifyRemark,startDate,endDate from (SELECT * from tc_goods_qualification  where 1 = 1 and sourceId =6 and verifyStatus =2 and startDate >'2019-02-28' and endDate >'2019-02-28') a)";
+    public void resolveWhere(){
+        String sql = "select* from (SELECT * from tc_goods_qualification where merchantCode = '1001' and sourceId =6 and verifyStatus =2 and startDate >'2019-02-28' and endDate >'2019-02-28') a";
         SqlModal vo = MySqlUtils.resolveWhere(sql, SqlModal.class);
         log.info("{}",vo);
     }

@@ -1,13 +1,15 @@
-package com.module.leetcode.context.impl;
+package com.module.leetcode.impl;
 
-import com.module.leetcode.core.PrimaryServices;
-import com.common.modal.ListNode;
+import com.common.utils.ArrayUtils;
+import com.common.utils.NumberUtils;
+import com.module.leetcode.PrimaryServices;
+import com.module.modal.ListNode;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
-public class PrimaryAlgorithmImpl implements PrimaryServices {
+public class PrimaryServiceImpl implements PrimaryServices {
 
     @Override
     public int removeDuplicates(int[] nums) {
@@ -38,7 +40,7 @@ public class PrimaryAlgorithmImpl implements PrimaryServices {
     }
 
     @Override
-    public void rotate(int[] nums, int k) {
+    public void rotateWithFor(int[] nums, int k) {
         //若k为数组长度的倍数，则不做处理
         if(k <=0 || nums == null || k % nums.length == 0){
             return;
@@ -55,6 +57,21 @@ public class PrimaryAlgorithmImpl implements PrimaryServices {
     }
 
     @Override
+    public void rotateWithReverse(int[] nums, int k) {
+        if(nums == null || k <=0 || k %nums.length == 0){
+            return;
+        }
+        //取最简k值
+        k = k % nums.length;
+        //翻转[0,k-1]
+        ArrayUtils.reverse(nums,0,nums.length-k-1);
+        //翻转[k,length-1]
+        ArrayUtils.reverse(nums,nums.length-k,nums.length-1);
+        //翻转[0,length-1]
+        ArrayUtils.reverse(nums,0,nums.length-1);
+    }
+
+    @Override
     public boolean containsDuplicate(int[] nums) {
         if(nums == null || nums.length <=0){
             return false;
@@ -63,8 +80,7 @@ public class PrimaryAlgorithmImpl implements PrimaryServices {
         for(int num:nums){
             set.add(num);
         }
-        List<Integer> arrays = new ArrayList<>(set);
-        return !(arrays.size() == nums.length);
+        return !(set.size() == nums.length);
     }
 
     @Override
@@ -85,15 +101,15 @@ public class PrimaryAlgorithmImpl implements PrimaryServices {
         Map<Integer,Integer> maps = new HashMap<>();
         List<Integer> result = new ArrayList<>();
         //进栈
-        for(int i = 0; i < nums1.length; i++){
-            int n = maps.get(nums1[i]) == null ? 0 :maps.get(nums1[i]);
-            maps.put(nums1[i],n +1);
+        for (int aNums1 : nums1) {
+            int n = maps.get(aNums1) == null ? 0 : maps.get(aNums1);
+            maps.put(aNums1, n + 1);
         }
         //出栈
-        for(int i = 0; i < nums2.length; i++){
-            if(maps.get(nums2[i]) !=null && maps.get(nums2[i]) > 0){
-                result.add(nums2[i]);
-                maps.put(nums2[i],maps.get(nums2[i])-1);
+        for (int aNums2 : nums2) {
+            if (maps.get(aNums2) != null && maps.get(aNums2) > 0) {
+                result.add(aNums2);
+                maps.put(aNums2, maps.get(aNums2) - 1);
             }
         }
         //转为int[]

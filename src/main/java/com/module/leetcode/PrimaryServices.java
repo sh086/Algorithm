@@ -1,6 +1,6 @@
-package com.module.leetcode.core;
+package com.module.leetcode;
 
-import com.common.modal.ListNode;
+import com.module.modal.ListNode;
 
 /**
  * LeetCode初级算法
@@ -27,13 +27,18 @@ public interface PrimaryServices {
      * */
     int maxProfit(int[] prices);
 
+
     /***
      *  将数组中的元素向右移动 k 个位置(旋转数组)
-     * 方法：按照数组长度取余
-     * 时间复杂度：O(n)  空间复杂度：O(1)
      * @param k  k 是非负数
      */
-    void rotate(int[] nums, int k);
+    void rotateWithFor(int[] nums, int k);
+
+    /***
+     *  数组翻转
+     * @param k  k 是非负数
+     */
+    void rotateWithReverse(int[] nums, int k);
 
     /**
      * 判断是否存在重复元素（存在重复）

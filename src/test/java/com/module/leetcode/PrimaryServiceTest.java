@@ -2,19 +2,12 @@ package com.module.leetcode;
 
 import com.Application;
 import com.common.utils.ArrayUtils;
-import com.google.common.collect.Maps;
-import com.module.leetcode.core.PrimaryServices;
-import com.common.modal.ListNode;
-import com.common.utils.ListUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -22,7 +15,6 @@ public class PrimaryServiceTest {
 
     @Resource
     private PrimaryServices primaryServices;
-
 
     /**
      *  从排序数组中删除重复项
@@ -51,7 +43,12 @@ public class PrimaryServiceTest {
     public void rotateArray() {
         int[] target ={1,2,3,4,5,6};
         int k = 4;
-        primaryServices.rotate(target,k);
+        //方案一
+        primaryServices.rotateWithFor(target,k);
+        ArrayUtils.printArray(target);
+
+        //方案二
+        primaryServices.rotateWithReverse(target,k);
         ArrayUtils.printArray(target);
     }
 
@@ -60,7 +57,7 @@ public class PrimaryServiceTest {
      * */
     @Test
     public void containsDuplicate() {
-        int[] target ={1,2,3,1};
+        int[] target ={1,2,3,1,2};
         Boolean bool = primaryServices.containsDuplicate(target);
         System.out.println(bool);
     }
